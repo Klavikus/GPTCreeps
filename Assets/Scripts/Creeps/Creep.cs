@@ -7,12 +7,19 @@ namespace Creeps
     {
         [SerializeField] private CreepStats _stats;
         [SerializeField] private Transform[] _waypoints;
+        [SerializeField] private LayerMask _enemyLayer;
+        [SerializeField] public float _attackRange = 5f;
 
         private int _waypointIndex;
 
-        public LayerMask enemyLayer; // Используйте LayerMask для определения слоя врагов
-        public float attackRange = 5f; // Радиус обнаружения врага
+        public Team Team => _stats.Team;
         
+        private void Update()
+        {
+            Move();
+            DetectEnemies();
+        }
+
         public void Initialize(CreepStats stats, Transform[] waypoints)
         {
             _stats = stats;
@@ -24,12 +31,6 @@ namespace Creeps
         private void MoveToFirstPoint()
         {
             transform.position = _waypoints[_waypointIndex].transform.position;
-        }
-
-        void Update()
-        {
-            Move();
-            DetectEnemies();
         }
 
         private void Move()
@@ -46,33 +47,30 @@ namespace Creeps
 
         private void DetectEnemies()
         {
-            // Простейшее обнаружение врага в пределах диапазона
-            Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
+            Collider[] hitEnemies = Physics.OverlapSphere(transform.position, _attackRange, _enemyLayer);
 
-            foreach (var enemy in hitEnemies)
+            foreach (Collider enemy in hitEnemies)
             {
-                // Проверяем, соответствует ли team врага
                 Creep enemyCreep = enemy.GetComponent<Creep>();
-                if (enemyCreep != null && enemyCreep.stats.team != this.stats.team)
+
+                if (enemyCreep != null && enemyCreep.Team != Team)
                 {
                     Attack(enemyCreep);
-                    break; // Предполагаем атаку только одного врага для упрощения
+
+                    break;
                 }
             }
         }
 
         private void Attack(Creep targetCreep)
         {
-            // Здесь логика атаки или урон врагу
             Debug.Log($"Attacking {targetCreep.name}");
-            // Например, можно вызвать метод получения урона у врага
         }
 
-        // Вспомогательная функция для отображения области обнаружения врагов в редакторе
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, attackRange);
+            Gizmos.DrawWireSphere(transform.position, _attackRange);
         }
     }
 }

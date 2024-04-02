@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3517508368054054863}
   - component: {fileID: 3945788615502894278}
+  - component: {fileID: 129520995519399506}
   m_Layer: 0
   m_Name: Creep
   m_TagString: Untagged
@@ -45,14 +46,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecc3628b21b4bc68d5757d08fc1b3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  moveSpeed: 5
+  _stats: {fileID: 0}
+  _waypoints: []
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  _attackRange: 15
+--- !u!136 &129520995519399506
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227364433871813163}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2641542321085782771
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,7 +86,6 @@ GameObject:
   - component: {fileID: 9192608467260898594}
   - component: {fileID: 3150740188785477380}
   - component: {fileID: 5640213251466446998}
-  - component: {fileID: 5271662696322283596}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -137,26 +158,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5271662696322283596
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2641542321085782771}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
