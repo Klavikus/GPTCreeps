@@ -833,9 +833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bda858d9d64e388fb6f3922a88153a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 3945788615502894278, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-  _redTeamStats: {fileID: 11400000, guid: 1dd5db81547e13f4a900fb250b4aa8bd, type: 2}
-  _blueTeamStats: {fileID: 11400000, guid: b31942264e4d3094d93ead64f71c5f39, type: 2}
+  _redTeamConfig: {fileID: 11400000, guid: 301d95102c73d294595d550d0a2d47e0, type: 2}
+  _blueTeamConfig: {fileID: 11400000, guid: 4b51408196307994588becbcd22d76f5, type: 2}
   _redTeamWaypoints:
   - {fileID: 1328821350}
   - {fileID: 920514143}

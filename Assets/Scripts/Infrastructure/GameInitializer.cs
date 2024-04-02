@@ -6,16 +6,15 @@ namespace Infrastructure
 {
     public class GameInitializer : MonoBehaviour
     {
-        [SerializeField] private Creep _prefab;
-        [SerializeField] private CreepStats _redTeamStats;
-        [SerializeField] private CreepStats _blueTeamStats;
+        [SerializeField] private CreepConfig _redTeamConfig;
+        [SerializeField] private CreepConfig _blueTeamConfig;
         [SerializeField] private Transform[] _redTeamWaypoints;
         [SerializeField] private Transform[] _blueTeamWaypoints;
 
         private void Awake()
         {
-            InstantiateAndInitializeCreep(_prefab, _redTeamStats, _redTeamWaypoints);
-            InstantiateAndInitializeCreep(_prefab, _blueTeamStats, _blueTeamWaypoints);
+            InstantiateAndInitializeCreep(_redTeamConfig.Prefab, _redTeamConfig.Stats, _redTeamWaypoints);
+            InstantiateAndInitializeCreep(_blueTeamConfig.Prefab, _blueTeamConfig.Stats,  _blueTeamWaypoints);
         }
 
         private void InstantiateAndInitializeCreep(Creep prefab, CreepStats stats, Transform[] waypoints)

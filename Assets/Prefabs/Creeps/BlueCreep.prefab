@@ -9,10 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3517508368054054863}
-  - component: {fileID: 3945788615502894278}
   - component: {fileID: 129520995519399506}
+  - component: {fileID: 3945788615502894278}
+  - component: {fileID: 1629348028355449356}
+  - component: {fileID: 4954231944318662159}
+  - component: {fileID: 1888230638133521146}
   m_Layer: 0
-  m_Name: Creep
+  m_Name: BlueCreep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,24 +37,6 @@ Transform:
   - {fileID: 9192608467260898594}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3945788615502894278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227364433871813163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecc3628b21b4bc68d5757d08fc1b3bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stats: {fileID: 0}
-  _waypoints: []
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  _attackRange: 15
 --- !u!136 &129520995519399506
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -75,6 +60,61 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3945788615502894278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227364433871813163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecc3628b21b4bc68d5757d08fc1b3bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  _attackRange: 15
+  _attacker: {fileID: 1629348028355449356}
+  _targetPointer: {fileID: 4954231944318662159}
+  _damageable: {fileID: 1888230638133521146}
+--- !u!114 &1629348028355449356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227364433871813163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163add13af5e401aab7f549cbd7bb245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4954231944318662159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227364433871813163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c2c45eb600401bb09c8fcf78383029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1888230638133521146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227364433871813163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e2dedd2e3e4e8a89d3d518651195af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2641542321085782771
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +127,7 @@ GameObject:
   - component: {fileID: 3150740188785477380}
   - component: {fileID: 5640213251466446998}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +176,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 889beb78fcc07ce45aeb81e31bc50ebb, type: 2}
+  - {fileID: 2100000, guid: b7853fa407db73d44aef4b5444f3526a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

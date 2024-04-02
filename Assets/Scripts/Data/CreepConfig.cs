@@ -1,3 +1,4 @@
+using Creeps;
 using UnityEngine;
 
 namespace Data
@@ -5,7 +6,7 @@ namespace Data
     [CreateAssetMenu(fileName = "CreepConfig", menuName = "Creep/Config")]
     public class CreepConfig : ScriptableObject
     {
-        public GameObject creepPrefab;
-        public CreepStats stats;
+        [field: SerializeField] public Creep Prefab { get; private set; }
+        [field: SerializeField] public CreepStats Stats { get; private set; }
     }
 }

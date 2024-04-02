@@ -4,20 +4,26 @@ namespace Creeps
 {
     public class Attacker : MonoBehaviour
     {
-        public float attackDamage = 10f;
-        public float attackRate = 1f;
-        private float nextAttackTime = 0f;
+        private float _attackDamage;
+        private float _attackDelay;
+        private float _nextAttackTime;
+
+        public void Initialize(float attackDamage, float attackDelay)
+        {
+            _attackDamage = attackDamage;
+            _attackDelay = attackDelay;
+        }
 
         public void Attack(Damageable target)
         {
-            if (Time.time >= nextAttackTime)
-            {
-                if (target != null)
-                {
-                    target.TakeDamage(attackDamage);
-                    nextAttackTime = Time.time + 1f / attackRate;
-                }
-            }
+            if (Time.time < _nextAttackTime || target == null)
+                return;
+
+            Debug.Log($"Try {name} attack damage: {_attackDamage} target: {target.name}!");
+
+            target.TakeDamage(_attackDamage);
+            
+            _nextAttackTime = Time.time + _attackDelay;
         }
     }
 }

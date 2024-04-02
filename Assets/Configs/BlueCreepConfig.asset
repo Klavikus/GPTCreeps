@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e949178f09624ffb9b644c46cd0e7940, type: 3}
+  m_Name: BlueCreepConfig
+  m_EditorClassIdentifier: 
+  <Prefab>k__BackingField: {fileID: 3945788615502894278, guid: c9f08a2848e564c47ab98ae5caa1cdfd, type: 3}
+  <Stats>k__BackingField: {fileID: 11400000, guid: b31942264e4d3094d93ead64f71c5f39, type: 2}
