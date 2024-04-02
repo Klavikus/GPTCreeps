@@ -6,21 +6,19 @@ namespace Infrastructure
 {
     public class GameInitializer : MonoBehaviour
     {
-        [SerializeField] private CreepConfig _redTeamConfig;
-        [SerializeField] private CreepConfig _blueTeamConfig;
+        [SerializeField] private CreepSpawner _redTeamSpawner;
+        [SerializeField] private CreepSpawner _blueTeamSpawner;
+
+        [SerializeField] private CreepSpawnConfig _redTeamSpawnConfig;
+        [SerializeField] private CreepSpawnConfig _blueTeamSpawnConfig;
+
         [SerializeField] private Transform[] _redTeamWaypoints;
         [SerializeField] private Transform[] _blueTeamWaypoints;
 
         private void Awake()
         {
-            InstantiateAndInitializeCreep(_redTeamConfig.Prefab, _redTeamConfig.Stats, _redTeamWaypoints);
-            InstantiateAndInitializeCreep(_blueTeamConfig.Prefab, _blueTeamConfig.Stats,  _blueTeamWaypoints);
-        }
-
-        private void InstantiateAndInitializeCreep(Creep prefab, CreepStats stats, Transform[] waypoints)
-        {
-            Creep creepInstance = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            creepInstance.Initialize(stats, waypoints);
+            _redTeamSpawner.Initialize(_redTeamSpawnConfig, _redTeamWaypoints);
+            _blueTeamSpawner.Initialize(_blueTeamSpawnConfig, _blueTeamWaypoints);
         }
     }
 }

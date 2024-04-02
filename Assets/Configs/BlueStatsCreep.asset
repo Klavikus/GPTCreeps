@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4d67066db94760afc487b76bb486d9, type: 3}
   m_Name: BlueStatsCreep
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 100
+  <MaxHealth>k__BackingField: 15
   <AttackDamage>k__BackingField: 5
   <AttackDelay>k__BackingField: 1
   <MoveSpeed>k__BackingField: 5

@@ -24,10 +24,15 @@ namespace Creeps
         public void Initialize(CreepStats stats, Transform[] waypoints)
         {
             Team = stats.Team;
-            
+
             _attacker.Initialize(stats.AttackDamage, stats.AttackDelay);
             _damageable.Initialize(stats.MaxHealth);
             _targetPointer.Initialize(stats.MoveSpeed, waypoints);
+        }
+
+        public void TakeDamage(float amount)
+        {
+            _damageable.TakeDamage(amount);
         }
 
         private void DetectAndAttackEnemies()
@@ -36,9 +41,9 @@ namespace Creeps
 
             foreach (var enemy in hitEnemies)
             {
-                if (enemy.TryGetComponent(out Damageable damageable))
+                if (enemy.TryGetComponent(out Creep creep) && creep.Team != Team)
                 {
-                    _attacker.Attack(damageable);
+                    _attacker.Attack(creep);
 
                     break;
                 }

@@ -14,11 +14,11 @@ namespace Creeps
             _attackDelay = attackDelay;
         }
 
-        public void Attack(Damageable target)
+        public void Attack(Creep target)
         {
             if (Time.time < _nextAttackTime || target == null)
                 return;
-
+            
             Debug.Log($"Try {name} attack damage: {_attackDamage} target: {target.name}!");
 
             target.TakeDamage(_attackDamage);
