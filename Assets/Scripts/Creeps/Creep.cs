@@ -9,7 +9,13 @@ namespace Creeps
         [SerializeField] private Transform[] _waypoints;
         [SerializeField] private LayerMask _enemyLayer;
         [SerializeField] public float _attackRange = 5f;
-
+        
+        public CreepConfig config;
+        
+        private Attacker attacker;
+        private TargetPointer targetPointer;
+        private Damageable damageable;
+        
         private int _waypointIndex;
 
         public Team Team => _stats.Team;
@@ -17,7 +23,7 @@ namespace Creeps
         private void Update()
         {
             Move();
-            DetectEnemies();
+            DetectAndAttackEnemies();
         }
 
         public void Initialize(CreepStats stats, Transform[] waypoints)
@@ -25,6 +31,19 @@ namespace Creeps
             _stats = stats;
             _waypoints = waypoints;
 
+            attacker = GetComponent<Attacker>();
+            targetPointer = GetComponent<TargetPointer>();
+            damageable = GetComponent<Damageable>();
+
+            // Применение конфигурации
+            attacker.attackDamage = config.stats.attackDamage;
+            attacker.attackRate = config.stats.attackRate;
+
+            damageable.health = config.stats.health;
+
+            targetPointer.moveSpeed = config.stats.moveSpeed;
+            targetPointer.waypoints = ...; // Определите способ
+            
             MoveToFirstPoint();
         }
 
@@ -45,28 +64,21 @@ namespace Creeps
                 _waypointIndex += 1;
         }
 
-        private void DetectEnemies()
+        void DetectAndAttackEnemies()
         {
             Collider[] hitEnemies = Physics.OverlapSphere(transform.position, _attackRange, _enemyLayer);
 
-            foreach (Collider enemy in hitEnemies)
+            foreach (var enemy in hitEnemies)
             {
-                Creep enemyCreep = enemy.GetComponent<Creep>();
-
-                if (enemyCreep != null && enemyCreep.Team != Team)
+                Damageable enemyDamageable = enemy.GetComponent<Damageable>();
+                if (enemyDamageable != null)
                 {
-                    Attack(enemyCreep);
-
-                    break;
+                    attacker.Attack(enemyDamageable);
+                    break; // Предполагаем атаку только одного врага для упрощения
                 }
             }
         }
-
-        private void Attack(Creep targetCreep)
-        {
-            Debug.Log($"Attacking {targetCreep.name}");
-        }
-
+        
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
