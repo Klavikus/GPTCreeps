@@ -2,14 +2,14 @@
 
 public class Creep : MonoBehaviour
 {
-    public Transform[] waypoints; // Список waypoints
-    public float moveSpeed = 5f; // Скорость движения
+    [SerializeField] private Transform[] _waypoints;
+    [SerializeField] private float _moveSpeed = 5f;
 
-    private int waypointIndex = 0;
+    private int _waypointIndex;
 
     private void Start()
     {
-        transform.position = waypoints[waypointIndex].transform.position;
+        MoveToFirstPoint();
     }
 
     private void Update()
@@ -17,17 +17,26 @@ public class Creep : MonoBehaviour
         Move();
     }
 
+    public void SetWaypoints(Transform[] waypoints)
+    {
+        _waypoints = waypoints;
+        MoveToFirstPoint();
+    }
+
+    private void MoveToFirstPoint()
+    {
+        transform.position = _waypoints[_waypointIndex].transform.position;
+    }
+
     private void Move()
     {
-        if (waypointIndex <= waypoints.Length - 1)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex].transform.position,
-                moveSpeed * Time.deltaTime);
+        if (_waypointIndex > _waypoints.Length - 1)
+            return;
 
-            if (transform.position == waypoints[waypointIndex].transform.position)
-            {
-                waypointIndex += 1;
-            }
-        }
+        transform.position = Vector3.MoveTowards(transform.position, _waypoints[_waypointIndex].transform.position,
+            _moveSpeed * Time.deltaTime);
+
+        if (transform.position == _waypoints[_waypointIndex].transform.position)
+            _waypointIndex += 1;
     }
 }

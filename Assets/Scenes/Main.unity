@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &135653867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8037471755078404042, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+  m_PrefabInstance: {fileID: 5565287209950091473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &184935723
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,11 +855,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542873763}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1674393134 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1227364433871813163, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-  m_PrefabInstance: {fileID: 9195690599858836849}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1875047590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,9 +1030,49 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+      propertyPath: _spawnDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+      propertyPath: _spawnPoint
+      value: 
+      objectReference: {fileID: 135653867}
+    - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
       propertyPath: creepPrefab
       value: 
-      objectReference: {fileID: 1674393134}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+      propertyPath: _creepPrefab
+      value: 
+      objectReference: {fileID: 3945788615502894278, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
+    - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+      propertyPath: _waypoints.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+      propertyPath: _waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1404288780}
+    - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+      propertyPath: _waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 2000363643}
+    - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+      propertyPath: _waypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 531675734}
+    - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+      propertyPath: _waypoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1875047591}
+    - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+      propertyPath: _waypoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 184935724}
+    - target: {fileID: 1850596272376637086, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
+      propertyPath: _waypoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 1542873764}
     - target: {fileID: 3753472482277527373, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
       propertyPath: m_Name
       value: CreepSpawner
@@ -1082,87 +1122,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a286ed0182b154b930d03b53a9550b, type: 3}
---- !u!1001 &9195690599858836849
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1227364433871813163, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_Name
-      value: Creep
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517508368054054863, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517508368054054863, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517508368054054863, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517508368054054863, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517508368054054863, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517508368054054863, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517508368054054863, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517508368054054863, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517508368054054863, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517508368054054863, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3945788615502894278, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: waypoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1404288780}
-    - target: {fileID: 3945788615502894278, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: waypoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 2000363643}
-    - target: {fileID: 3945788615502894278, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: waypoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 531675734}
-    - target: {fileID: 3945788615502894278, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: waypoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 1875047591}
-    - target: {fileID: 3945788615502894278, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: waypoints.Array.data[4]
-      value: 
-      objectReference: {fileID: 184935724}
-    - target: {fileID: 3945788615502894278, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-      propertyPath: waypoints.Array.data[5]
-      value: 
-      objectReference: {fileID: 1542873764}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1170,4 +1129,3 @@ SceneRoots:
   - {fileID: 1276996863}
   - {fileID: 1418163700}
   - {fileID: 5565287209950091473}
-  - {fileID: 9195690599858836849}

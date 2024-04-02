@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class CreepSpawner : MonoBehaviour
 {
-    public GameObject creepPrefab; // Префаб крипа, который будем спавнить
-    public float spawnDelay = 20f; // Задержка перед спавном
-    public Transform spawnPoint; // Точка, где крипы будут появляться
+    [SerializeField] private Creep _creepPrefab;
+    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private float _spawnDelay = 20f;
+    [SerializeField] private Transform[] _waypoints;
 
     private void Start()
     {
@@ -14,9 +15,9 @@ public class CreepSpawner : MonoBehaviour
 
     private IEnumerator SpawnCreepRoutine()
     {
-        while (true) // Бесконечный цикл для постоянного спавна
+        while (true)
         {
-            yield return new WaitForSeconds(spawnDelay);
+            yield return new WaitForSeconds(_spawnDelay);
 
             SpawnCreep();
         }
@@ -24,6 +25,7 @@ public class CreepSpawner : MonoBehaviour
 
     private void SpawnCreep()
     {
-        Instantiate(creepPrefab, spawnPoint.position, spawnPoint.rotation);
+        Creep creep = Instantiate(_creepPrefab, _spawnPoint.position, _spawnPoint.rotation);
+        creep.SetWaypoints(_waypoints);
     }
 }
