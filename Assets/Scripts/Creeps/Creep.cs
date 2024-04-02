@@ -5,18 +5,10 @@ namespace Creeps
 {
     public class Creep : MonoBehaviour
     {
+        [SerializeField] private CreepStats _stats;
         [SerializeField] private Transform[] _waypoints;
-        [SerializeField] private float _moveSpeed = 5f;
-
-        private CreepStats stats;
-        private Transform target;
 
         private int _waypointIndex;
-
-        private void Start()
-        {
-            MoveToFirstPoint();
-        }
 
         private void Update()
         {
@@ -25,13 +17,9 @@ namespace Creeps
 
         public void Initialize(CreepStats stats, Transform[] waypoints)
         {
-            this.stats = stats;
-            // Инициализация движения по waypoints и других параметров...
-        }
-
-        public void SetWaypoints(Transform[] waypoints)
-        {
+            _stats = stats;
             _waypoints = waypoints;
+
             MoveToFirstPoint();
         }
 
@@ -46,7 +34,7 @@ namespace Creeps
                 return;
 
             transform.position = Vector3.MoveTowards(transform.position, _waypoints[_waypointIndex].transform.position,
-                _moveSpeed * Time.deltaTime);
+                _stats.MoveSpeed * Time.deltaTime);
 
             if (transform.position == _waypoints[_waypointIndex].transform.position)
                 _waypointIndex += 1;

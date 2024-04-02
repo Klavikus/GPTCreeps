@@ -28,7 +28,7 @@ namespace Creeps
         private void SpawnCreep()
         {
             Creep creep = Instantiate(_creepPrefab, _spawnPoint.position, _spawnPoint.rotation);
-            creep.SetWaypoints(_waypoints);
+            // creep.SetWaypoints(_waypoints);
         }
     }
 }

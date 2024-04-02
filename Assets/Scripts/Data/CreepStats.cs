@@ -5,9 +5,9 @@ namespace Data
     [CreateAssetMenu(fileName = "CreepStats", menuName = "ScriptableObject/CreepStats")]
     public class CreepStats : ScriptableObject
     {
-        public float health;
-        public float attackDamage;
-        public float moveSpeed;
-        public Team team;
+        [field: SerializeField] public float Health { get; private set; }
+        [field: SerializeField] public float AttackDamage { get; private set; }
+        [field: SerializeField] public float MoveSpeed { get; private set; }
+        [field: SerializeField] public Team Team { get; private set; }
     }
 }

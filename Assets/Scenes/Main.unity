@@ -630,9 +630,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bda858d9d64e388fb6f3922a88153a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3945788615502894278, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
-  redTeamStats: {fileID: 11400000, guid: 1dd5db81547e13f4a900fb250b4aa8bd, type: 2}
-  blueTeamStats: {fileID: 11400000, guid: b31942264e4d3094d93ead64f71c5f39, type: 2}
+  _prefab: {fileID: 3945788615502894278, guid: 1ef97048cace733489e066112f3ddcfd, type: 3}
+  _redTeamStats: {fileID: 11400000, guid: 1dd5db81547e13f4a900fb250b4aa8bd, type: 2}
+  _blueTeamStats: {fileID: 11400000, guid: b31942264e4d3094d93ead64f71c5f39, type: 2}
+  _redTeamWaypoints:
+  - {fileID: 1404288780}
+  - {fileID: 2000363643}
+  - {fileID: 531675734}
+  - {fileID: 1875047591}
+  - {fileID: 184935724}
+  - {fileID: 1542873764}
+  _blueTeamWaypoints:
+  - {fileID: 1542873764}
+  - {fileID: 184935724}
+  - {fileID: 1875047591}
+  - {fileID: 531675734}
+  - {fileID: 2000363643}
+  - {fileID: 1404288780}
 --- !u!1 &1276996862
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,22 +6,22 @@ namespace Infrastructure
 {
     public class GameInitializer : MonoBehaviour
     {
-        public Creep prefab; // Префаб крипа, установите в редакторе
-        public CreepStats redTeamStats; // ScriptableObject для красной команды
-        public CreepStats blueTeamStats; // ScriptableObject для синей команды
+        [SerializeField] private Creep _prefab;
+        [SerializeField] private CreepStats _redTeamStats;
+        [SerializeField] private CreepStats _blueTeamStats;
+        [SerializeField] private Transform[] _redTeamWaypoints;
+        [SerializeField] private Transform[] _blueTeamWaypoints;
 
-        void Awake()
+        private void Awake()
         {
-            // Создаем и инициализируем двух крипов как пример
-            InstantiateAndInitializeCreep(prefab, redTeamStats);
-            InstantiateAndInitializeCreep(prefab, blueTeamStats);
+            InstantiateAndInitializeCreep(_prefab, _redTeamStats, _redTeamWaypoints);
+            InstantiateAndInitializeCreep(_prefab, _blueTeamStats, _blueTeamWaypoints);
         }
 
-        private void InstantiateAndInitializeCreep(Creep prefab, CreepStats stats)
+        private void InstantiateAndInitializeCreep(Creep prefab, CreepStats stats, Transform[] waypoints)
         {
             Creep creepInstance = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            creepInstance.Initialize(stats, null); // Передайте настоящие waypoints
-            // Остальная логика инициализации
+            creepInstance.Initialize(stats, waypoints);
         }
     }
 }
