@@ -7,6 +7,8 @@ namespace Creeps
         private float _attackDamage;
         private float _attackDelay;
         private float _nextAttackTime;
+        
+        private float _rayDuration = 0.3f;
 
         public void Initialize(float attackDamage, float attackDelay)
         {
@@ -18,11 +20,13 @@ namespace Creeps
         {
             if (Time.time < _nextAttackTime || target == null)
                 return;
-            
-            Debug.Log($"Try {name} attack damage: {_attackDamage} target: {target.name}!");
+
+            Debug.Log($"{name} attack damage: {_attackDamage} target: {target.name}!");
+            Debug.DrawLine(transform.position + Vector3.up, target.transform.position + Vector3.up, Color.magenta,
+                _rayDuration);
 
             target.TakeDamage(_attackDamage);
-            
+
             _nextAttackTime = Time.time + _attackDelay;
         }
     }

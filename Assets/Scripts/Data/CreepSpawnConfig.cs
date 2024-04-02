@@ -5,7 +5,7 @@ namespace Data
     [CreateAssetMenu(fileName = "CreepSpawnConfig", menuName = "Creep/SpawnConfig")]
     public class CreepSpawnConfig : ScriptableObject
     {
-        public CreepConfig creepConfig;
-        public float spawnDelay;
+        [field: SerializeField] public CreepConfig CreepConfig { get; private set; }
+        [field: SerializeField] public float SpawnDelay { get; private set; }
     }
 }

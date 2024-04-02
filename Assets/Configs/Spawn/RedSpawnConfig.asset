@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25894a3ed0844bbb11503d35ab140d7, type: 3}
   m_Name: RedSpawnConfig
   m_EditorClassIdentifier: 
-  creepConfig: {fileID: 11400000, guid: 301d95102c73d294595d550d0a2d47e0, type: 2}
-  spawnDelay: 5
+  <CreepConfig>k__BackingField: {fileID: 11400000, guid: 301d95102c73d294595d550d0a2d47e0, type: 2}
+  <SpawnDelay>k__BackingField: 5
